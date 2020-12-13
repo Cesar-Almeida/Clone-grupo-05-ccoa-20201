@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www build",
-    "build": "node build/build.js"
+    "build": "webpack"
 
   },
   "dependencies": {
