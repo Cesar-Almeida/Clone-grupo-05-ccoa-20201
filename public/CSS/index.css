@@ -26,3 +26,21 @@ html {
   width: 50%;
   height: auto;
 }
+
+@media(max-width: 540px){
+  .navbar-toggler{
+    margin-right: 32%;
+  }
+  .nav-link{
+    width: 80%;
+    margin: 1%;
+    padding: 1%;
+    font-size: 12px;
+  }
+  .btn{
+    width: 86%;
+    margin: 1%;
+    padding: 2%;
+    font-size: 12px;
+  }
+}

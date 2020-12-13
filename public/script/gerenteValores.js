@@ -297,7 +297,7 @@ function criarTabelas(numMaqui) {
                                 </div>
                                 <div class="modal-body">                
                                   
-                                <table class="table table-striped table-light"             >                  <thead>                      <tr>                          <th scope="col">Componente</th>                          <th scope="col">Usado (%)</th>                          <th scope="col">Mínimo</th>                          <th scope="col">Máximo</th>                      </tr>                  </thead>                  <tbody>                      <tr>                          <th id="mem0" scope="row">Memória</th>                          <td id="mem${id_maquina}_${cont_comp_mem}"></td>                          <td id="mem${id_maquina}_${cont_comp_mem + 1}"></td>                          <td id="mem${id_maquina}_${cont_comp_mem + 2}"></td>                      </tr>                      <tr>                          <th id="cpu0" scope="row">CPU</th>                          <td id="cpu${id_maquina}_${cont_comp_cpu}"></td>                          <td id="cpu${id_maquina}_${cont_comp_cpu + 1}"></td>                          <td id="cpu${id_maquina}_${cont_comp_cpu + 2}"></td                      </tr>                      <tr>                          <th id="disc0" scope="row">Disco</th>                          <td id="disc${id_maquina}_${cont_comp_disc}"></td>                          <td id="disc${id_maquina}_${cont_comp_disc + 1}"></td>                          <td id="disc${id_maquina}_${cont_comp_disc + 2}"></td>                      </tr>                  </tbody>              </table>
+                                <table class="table table-striped table-light"             >                  <thead>                      <tr >                          <th scope="col">Componente</th>                          <th scope="col">Usado (%)</th>                          <th scope="col">Mínimo</th>                          <th scope="col">Máximo</th>                      </tr>                  </thead>                  <tbody>                      <tr id="trDaMemo${id_maquina}">                          <th id="mem0" scope="row">Memória</th>                          <td id="mem${id_maquina}_${cont_comp_mem}"></td>                          <td id="mem${id_maquina}_${cont_comp_mem + 1}"></td>                          <td id="mem${id_maquina}_${cont_comp_mem + 2}"></td>                      </tr>                      <tr id="trDaCpu${id_maquina}">                          <th id="cpu0" scope="row">CPU</th>                          <td id="cpu${id_maquina}_${cont_comp_cpu}"></td>                          <td id="cpu${id_maquina}_${cont_comp_cpu + 1}"></td>                          <td id="cpu${id_maquina}_${cont_comp_cpu + 2}"></td                      </tr>                      <tr id="trDoDisco${id_maquina}">                          <th id="disc0" scope="row">Disco</th>                          <td id="disc${id_maquina}_${cont_comp_disc}"></td>                          <td id="disc${id_maquina}_${cont_comp_disc + 1}"></td>                          <td id="disc${id_maquina}_${cont_comp_disc + 2}"></td>                      </tr>                  </tbody>              </table>
                                 </div>
                                 <div class="modal-footer">
                                 </div>
@@ -346,7 +346,7 @@ function criarTabelas(numMaqui) {
                                     <p style="padding: 3px; font-size: 14px">O gráfico abaixo mostra a proporção dos custos gastos para cada serviço que você usa.</p>
                                     <canvas height=101%  id="roscaCanva${id_maquina}"></canvas>
                                     <br>
-                                    <div>
+                                    <div id="caixaServicos${id_maquina}">
                                       <div class="row" style="padding: 0% 8%;">
                                         <div class="col" style="display: flex; align-items: center;">
                                           <div style="width:26px;height:26px;background-color:#3782d4;"></div>
@@ -625,7 +625,7 @@ function pegarDadosFore(idDaVez) {
     .then(function (response) {
       if (response.ok) {
         response.json().then(function (resposta) {
-          console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+         // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
           let registro = resposta;
           
           let gastoMensal = [];
@@ -638,9 +638,9 @@ function pegarDadosFore(idDaVez) {
             mes.push(registro[n].mes);
             mesNumero.push(n+1);
           }
-          console.log("GASTO MENSAL:"+gastoMensal);
-          console.log("GASTO MENSAL:"+mes);
-          console.log("GASTO MENSAL:"+mesNumero);
+         // console.log("GASTO MENSAL:"+gastoMensal);
+         // console.log("GASTO MENSAL:"+mes);
+         // console.log("GASTO MENSAL:"+mesNumero);
           
       
           plotarRosca(idDaVez,gastoMensal[gastoMensal.length -1]);
@@ -676,7 +676,7 @@ setTimeout(function(){
     .then(function (response) {
       if (response.ok) {
         response.json().then(function (resposta) {
-          console.log("OLHA AQUI: "+resposta[0]);
+         // console.log("OLHA AQUI: "+resposta[0]);
           gastoMensal.push(resposta[0].toFixed(2));
           mes.push("Forecast");
           plotarFore(idDaVez, gastoMensal, mes, resposta[0]);
@@ -702,9 +702,9 @@ function igualarClass(totalMemo, totalCpu, totalDisc, num_maqui,globalId) {
   for(let r = 1; r<=3; r++){
 
       let caixa_icone  =document.getElementById(`tab${maquina}lin${r}`);
-      console.log("Essa é a caixa_icone: "+caixa_icone.innerHTML);
+      //console.log("Essa é a caixa_icone: "+caixa_icone.innerHTML);
       let icone  =document.getElementById(`icone${maquina}lin${r}`);
-      console.log("Esse é 0 icone: "+icone.innerHTML);
+      //console.log("Esse é 0 icone: "+icone.innerHTML);
     
 
 
@@ -856,13 +856,18 @@ function igualarClass(totalMemo, totalCpu, totalDisc, num_maqui,globalId) {
 function temporizar(num_maqui,globalId){
   //console.log(num_maqui);
   var elements = document.getElementsByClassName("modal-backdrop fade show");
-  //console.log(elements.length);
-  if(elements.length == 0){
+  var elementsTour= document.getElementsByClassName("introjs-overlay");
+  console.log("elemento Tourzao "+elementsTour);
+  console.log("elemento normal "+elements);
+  
+  
+    if(elements.length == 0 ){
       if(num_maqui+1>=globalId.length){
       var temporizador;
       var contador=0;
       // console.log(iconesCriticos);
-                
+      let cont1=0;
+
       temporizador=setInterval(() => {
         for(ic in iconesCriticos){
           iconesCriticos[ic].style.visibility = "initial";
@@ -874,7 +879,7 @@ function temporizar(num_maqui,globalId){
             iconesCriticos[ic].style.visibility = "hidden";
           }
           if(contador>=8){
-            if(elements.length==0){
+            if(elements.length==0 && elementsTour.length==0 && contadorTour==0){
               caixa_maquinas.innerHTML = "";
               iconesCriticos=[];
               listaEC2=[];
@@ -888,7 +893,9 @@ function temporizar(num_maqui,globalId){
         ;
       }, 2000);  
     }
-  }
+
+}
+  
     
 }
 

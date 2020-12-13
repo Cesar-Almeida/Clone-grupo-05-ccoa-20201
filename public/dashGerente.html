@@ -61,10 +61,10 @@
                     <li class="nav-item">
                         <ul class="nav justify-content-center my-2 my-sm-0">
                             <li class="nav-item">
-                                <a type="button" class="btn btn-danger mx-auto" data-toggle="modal"
+                                <a id="btEmergencia" type="button" class="btn btn-danger mx-auto" data-toggle="modal"
                                     data-target="#exampleModal" data-whatever="@mdo">Chamado de Emergência <i
                                         class="fas fa-bell"></i></a>
-                                <i onclick="botao()" style="color: #007bff;" class="fas fa-play-circle fa-lg"></i>
+                                <i onclick="botao()" id="tuor" style="color: #007bff;" class="fas fa-play-circle fa-lg"></i>
                                 
                             </li>
                         </ul>
@@ -120,7 +120,7 @@
                 </div>
 
                 <!-- Configuração Máquinas -->
-                <button  onclick="receber_ativados(maquina_valor.value,componente_valor.value)" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                <button id="btConfigurar" onclick="receber_ativados(maquina_valor.value,componente_valor.value)" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
                     Configuração Máquinas
                 </button>
 
@@ -295,7 +295,7 @@
 
                     </div>
 
-                    <a class="btn btn-outline-danger my-2 my-sm-0" type="submit" href="index.html"
+                    <a class="btn btn-outline-danger my-2 my-sm-0" id="btSair" type="submit" href="index.html"
                         onclick="logoff()">Sair<i class="fas fa-door-open"></i></a>
 
                 </form>
@@ -329,43 +329,194 @@
 </html>
 
 <script>
-    function botao(){
+    var contadorTour=0;
 
+
+    function botao(){
+        contadorTour++;
     
         introJs().setOptions({
         steps: [{
             intro: "Inicio do Tour!"
-         }, //{
-        //     element:document.querySelector('#maquina_1'),
-        //     intro: "Cada card como este representa uma máquina!"
-        // }, {
-        //     element:document.querySelector('#tabelaInicial1'),
-        //     intro: "Esta tabela representa o estado da ultima leitura de forma visual!"
-        // },
+         }, {
+            element:document.querySelector('#maquina_1'),
+            intro: "Cada card como este representa uma máquina!"
+        }, {
+            element:document.querySelector('#tabelaInicial1'),
+            intro: "Esta tabela representa o estado da ultima leitura de forma visual!"
+        },
           {
             element:document.querySelector('#trInicial1'),
             intro: `Sua representação pode ser: Crítico(💀), Alerta(⚠️), Normal(✅) e Desativado(❓)`
         },{
             element:document.querySelector('#btAmplia1'),
             intro: `Esta aba mostra de uma forma numérica o estado de cada componente`
-        } ,{
-            element:document.querySelector('#btForecast1'),
-            intro: `Esta aba mosta o consumo e a previsão mensal(Forecast) a se pagar`
-            
-        },{
-            element:document.querySelector('#btAnalisar1'),
-            intro: `Ao clicar em "Analisar, você é redirecionado à pagina de Analista responsável por esta máquina"`
-            
-        }
-    
+        } 
+        
     ]
-        }).start();
-        
-        //document.getElementById('ampli1').classList.remove('show');
+        }).start().oncomplete(function() {
+            $('#ampli1').modal('show');
+            AbrirModalAmpliar();          
+        });
+    }      
+
+    function AbrirModalAmpliar(){
+        introJs().setOptions({
+                steps:[
+                {
+                    element:document.querySelector('#ampli1'),
+                    intro: `Esta é a tela de Ampliar, nela traduzimos os icones em valores reais da ultima leitura`
+                },
+                {
+                    element:document.querySelector('#trDaMemo1'),
+                    intro: `Cada linha representa um componente, no caso esta, mostra dados de memória`
+                }
+                ,
+                {
+                    element:document.querySelector('#trDaCpu1'),
+                    intro: `Esta de CPU`
+                }
+                ,
+                {
+                    element:document.querySelector('#trDoDisco1'),
+                    intro: `E por fim, Disco`
+                },
+                {
+                    element:document.querySelector('#mem1_1'),
+                    intro: `A primeira coluna mostra o valor da ultima leitura lida deste componente`, 
+                    
+                },
+                {
+                    element:document.querySelector('#mem1_2'),
+                    intro: `a segunda mostra o valor minimo para o estado de alerta`
+                },
+                {
+                    element:document.querySelector('#mem1_3'),
+                    intro: `e a terceira mostra o valor máximo do estado alerta, acima dele a leitura é classificada como crítica`
+                }]
+            }).start().oncomplete(function() {
+                $('#ampli1').modal('hide');
+                introJs().setOptions({
+                    steps:[{
+                            intro:''
+                        },
+                        {
+                            element:document.querySelector('#btForecast1'),
+                            intro: `Esta aba mosta o consumo e a previsão mensal(Forecast) a se pagar`
+
+                        }
+                ]}).start().oncomplete(function() {
+                    $('#forecast1').modal('show');
+                    introJs().setOptions({
+                        steps:[
+                        
+                            {
+                                element:document.querySelector('#forecast1'),
+                                intro: `Este é o painel de Forecast, nele é onde se encontra dados de gastos da máquina monitorada`
+                            },{
+                                element:document.querySelector('#forecastCanva1'),
+                                intro: `Este primeiro gráfico mostra a previsão do preço final do mês atual`
+                            },{
+                                element:document.querySelector('#roscaCanva1'),
+                                intro: `O gráfico de rosca desmenbra o valor total em seus respectivos serviços`
+                            },{
+                                element:document.querySelector('#caixaServicos1'),
+                                intro: `O preço de cada serviços é representado na legenda`
+                            },{
+                                element:document.querySelector('#valorTotal1'),
+                                intro: `Por fim, temos o total de gastos desta máquina`
+                            },{
+                                element:document.querySelector('#botao_pdf_1'),
+                                intro: `Você pode baixar o boleto do mês disponibilizado pela nossa API`
+                            }
+                        ]
+                    }).start().oncomplete(function() {
+                        $('#forecast1').modal('hide');
+                        introJs().setOptions({
+                            steps:[{
+                                    intro:''
+                                },
+                                
+                                {
+                                    element:document.querySelector('#btAnalisar1'),
+                                    intro: `Este botão entre em detalhes mais aprofundados desta máquina, ou seja, em uma tela dashAnalista`
+                                },{
+                                    element:document.querySelector('#btEmergencia'),
+                                    intro: `Caso precise entrar em contato com um supervisor, utilize o botao "Chamado de Emergência"`
+                                }
+                        ]}).start().oncomplete(function() {
+                            AbrirEmergencia();  
+                            $('#exampleModal').modal('show');        
+                        });          
+                    });          
+                });          
+            });
+}   
 
 
-//
 
-        
-    }
+function AbrirEmergencia(){
+    introJs().setOptions({
+        steps:[{
+                intro:''
+            },
+            {
+                element:document.querySelector('#exampleModal'),
+                intro: `Este é o formulario que será preenchido para que sua mensagem chegue ao Slack de seu supervisor`
+            }
+    ]}).start().oncomplete(function() {
+        $('#exampleModal').modal('hide');     
+        MostrarBtConfig();    
+    });
+}
+
+function MostrarBtConfig(){
+    introJs().setOptions({
+        steps:[{
+                intro:''
+            },
+            {
+                element:document.querySelector('#btConfigurar'),
+                intro: `Este botão é exclusivo de um usuário "gerente", onde se configura os componentes de cada máquina`
+            }
+    ]}).start().oncomplete(function() {
+        $('#exampleModalLong').modal('show');    
+        AbrirBtConfig();     
+    });
+}
+
+
+function AbrirBtConfig(){
+    introJs().setOptions({
+        steps:[{
+                intro:''
+            },
+            {
+                element:document.querySelector('#exampleModalLong'),
+                intro: `Aqui você pode escolher qual máquina, qual componente, qual seu estado e seus parâmetros a se alterar`
+            }
+    ]}).start().oncomplete(function() {
+        $('#exampleModalLong').modal('hide'); 
+        MostrarModoEscuro();        
+    });
+}
+
+function MostrarModoEscuro(){
+    introJs().setOptions({
+        steps:[{
+                intro:''
+            },
+            
+            {
+                element:document.querySelector('#darkSwitch'),
+                intro: `Aqui você ativa ou desativa o modo escuro do site`
+            },
+            {
+                element:document.querySelector('#btSair'),
+                intro: `E por fim, caso queira sair de sua conta, clique em "sair"`
+            }
+    ]}).start();
+    contadorTour--;
+}
+
 </script>

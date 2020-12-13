@@ -17,7 +17,6 @@
   },
   "dependencies": {
     "body-parser": "^1.18.2",
-    "build": "^0.1.4",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "^4.17.1",
@@ -30,17 +29,12 @@
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
     "node-fetch": "^2.6.1",
-    "node-gyp": "^7.1.2",
     "nodemailer": "^6.4.13",
     "nodemon": "^2.0.4",
-    "prebuild-install": "^6.0.0",
-    "rebuild": "^0.1.2",
     "request": "^2.88.2",
     "require": "^2.4.20",
     "sequelize": "^5.21.2",
-    "tedious": "^6.6.0",
-    "webpack": "^5.10.1",
-    "webpack-cli": "^4.2.0",
-    "cors": "^2.8.5"
-}
+    "serialport": "^6.0.4",
+    "tedious": "^6.6.0"
+  }
 }
