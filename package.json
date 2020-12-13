@@ -34,7 +34,7 @@
     "request": "^2.88.2",
     "require": "^2.4.20",
     "sequelize": "^5.21.2",
-    "serialport": "^6.0.4",
-    "tedious": "^6.6.0"
+    "tedious": "^6.6.0",
+    "cors": "^2.8.5"
   }
 }
