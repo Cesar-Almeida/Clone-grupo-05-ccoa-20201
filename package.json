@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "npm start"
+    "start": "npm start",
+    "build": "azure"
 
   },
   "dependencies": {
