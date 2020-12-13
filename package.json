@@ -7,7 +7,6 @@
   "main": "node ./routes/index.js",
   "private": true,
   "scripts": {
-    "dev": "nodemon ./routes/index.js",
     "rede": "node ./routes/index.js",
     "start": "node ./bin/www"
   },
