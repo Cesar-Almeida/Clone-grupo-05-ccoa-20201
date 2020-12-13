@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SixMinds - Lite Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="./script/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <script src="https://www.chartjs.org/dist/2.9.3/Chart.min.js"></script>
+    <script src="https://www.chartjs.org/samples/latest/utils.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="dark-mode.css">
+    <link rel="stylesheet" href="script/banner.css">
+
+    <!-- Icone na amba do navegador -->
+    <link rel="shortcut icon" href="img/arvore.png">
+    <link rel="stylesheet" href="script/dashmaquina.css">
+    <script data-jsd-embedded data-key="2e6cfa70-127d-4fe6-8d96-db19dba3fb7b"
+        data-base-url="https://jsd-widget.atlassian.com"
+        src="https://jsd-widget.atlassian.com/assets/embed.js"></script>
+
+</head>
+
+<body>
+
+
+
+    <div class="pos-f-t">
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-dark p-4">
+            </div>
+        </div>
+
+        <nav id="menu" class="navbar navbar-expand-lg navbar-light bg-white shadow-sm rounded">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+                aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand text-warning" href="#">SixMinds <span class="text-primary">Lite</span></a>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+                   
+
+
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+
+                    <div class="border btn-outline-primary border-primary rounded my-2 my-sm-0 nav-link mr-3">
+
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="darkSwitch">
+                            <label class="custom-control-label" for="darkSwitch">Modo escuro</label>
+                        </div>
+                        <script src="dark-mode-switch.min.js"></script>
+
+
+                    </div>
+
+                    <a class="btn btn-outline-danger my-2 my-sm-0" type="submit" href="index.html"
+                        onclick="logoff()">Sair<i class="fas fa-door-open"></i></a>
+
+                </form>
+            </div>
+        </nav>
+    </div>
+
+    </div>
+    <!-- container geral-->
+    <div class="container-fluid">
+
+        <div class="row mt-3">
+
+
+
+
+            <div class="col-3 mt-1">
+                <div class="rounded-lg shadow p-3 bg-white rounded">
+                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <div class="input-group ">
+
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><svg width="1em" height="1em"
+                                        viewBox="0 0 16 16" class="bi bi-display" fill="currentColor"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M5.75 13.5c.167-.333.25-.833.25-1.5h4c0 .667.083 1.167.25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75z" />
+                                        <path fill-rule="evenodd"
+                                            d="M13.991 3H2c-.325 0-.502.078-.602.145a.758.758 0 0 0-.254.302A1.46 1.46 0 0 0 1 4.01V10c0 .325.078.502.145.602.07.105.17.188.302.254a1.464 1.464 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.758.758 0 0 0 .254-.302 1.464 1.464 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.757.757 0 0 0-.302-.254A1.46 1.46 0 0 0 13.99 3zM14 2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h12c2 0 2-2 2-2V4c0-2-2-2-2-2z" />
+                                    </svg></span>
+                            </div>
+                            <select name="" id="maquina_atual" class="form-control" aria-label="Username"
+                                aria-describedby="basic-addon1">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="rounded-lg shadow p-3 bg-white rounded">
+                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <a class="nav-link active" id="v-pills-geral-tab" data-toggle="pill" href="#v-pills-geral"
+                            role="tab" aria-controls="v-pills-geral" aria-selected="true">Geral</a>
+                        <a class="nav-link" id="v-pills-cpu-tab" data-toggle="pill" href="#v-pills-cpu" role="tab"
+                            aria-controls="v-pills-cpu" aria-selected="true">CPU</a>
+                        <a class="nav-link" id="v-pills-memory-tab" data-toggle="pill" href="#v-pills-memory" role="tab"
+                            aria-controls="v-pills-memory" aria-selected="false">Memória</a>
+
+                        <!-- <a class="nav-link" id="v-pills-network-tab" data-toggle="pill" href="#v-pills-network"
+                            role="tab" aria-controls="v-pills-network" aria-selected="false">Rede</a> -->
+
+                    </div>
+                </div>
+                <br>
+                <div class="rounded-lg shadow p-3 bg-white rounded">
+                    <a href="http://www.digitalschool.com.br/faculdade/graduacao/cienciadacomputacao.html"><img src="./img/propagandaBandtec.png" id="propaganda"></a>
+                </div>
+
+                <br>
+             
+            </div>
+
+            <div class="col-9">
+                <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-geral" role="tabpanel"
+                        aria-labelledby="v-pills-geral-tab">
+                        <div id="div_geral_section">
+                            <div class="rounded-lg shadow py-3 my-1 bg-white rounded">
+                                <!--GERAL-->
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="container">
+                                            <h3 class="d-flex justify-content-center">CORE %</h3>
+                                            <!-- GRÁFICOS -->
+                                            <div class="aviso_geral" id="AVISO_geral_percent"></div>
+                                            <div>
+                                                <canvas class="my-100" id="cpu_geral_chart"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class="container">
+                                            <h3 class="d-flex justify-content-sm-center">MEMÓRIA</h3>
+                                            <!-- GRÁFICOS -->
+                                            <div class="aviso_geral" id="AVISO_geral_memoria"></div>
+                                            <div>
+                                                <canvas class="my-100" id="memory_geral_chart"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- CPU -->
+                    <div class="tab-pane fade" id="v-pills-cpu" role="tabpanel" aria-labelledby="v-pills-cpu-tab">
+                        <div id="div_cpu_section">
+                            <div class="rounded-lg shadow py-3 my-1 bg-white rounded">
+                                <!--CPU-->
+                                <div class="col">
+                                    <div class="container">
+
+                                        <h3 class="d-flex justify-content-left">CPU</h3>
+                                        <div class="aviso_geral" id="CPU_AVISO"></div>
+                                        <div>
+                                            <canvas class="my-100" id="cpu_chart"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class=" d-flex justify-content-center align-middle legenda_cores">
+                                        <style>
+                                            .legenda_cores {
+                                                display: flex;
+                                                align-items: center;
+                                                justify-items: center;
+                                            }
+
+                                            .Cor_da_legenda {
+                                                height: 10px;
+                                                width: 10px;
+                                                margin: 0px 5px;
+                                                border: 0.1px black solid;
+                                            }
+
+                                            .Cor_da_legenda:nth-of-type(1) {
+                                                background-color: #ffce56
+                                            }
+
+                                            .Cor_da_legenda:nth-of-type(2) {
+                                                background-color: #ff6384
+                                            }
+
+                                            .Cor_da_legenda:nth-of-type(3) {
+                                                background-color: #17a2b8
+                                            }
+                                        </style>
+                                        <div class="Cor_da_legenda"></div>Abaixo do
+                                        mínimo:<span id="parametro_minimo"></span>
+                                        <div class="Cor_da_legenda"></div>Acima do
+                                        Máximo:<span id="parametro_maximo"></span>
+
+                                        <div class="Cor_da_legenda"></div>Dentro
+                                        dos parâmetros
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="v-pills-memory" role="tabpanel" aria-labelledby="v-pills-memory-tab">
+                        <div id="div_memory_section">
+                            <div class="rounded-lg shadow p-3 my-1 bg-white rounded">
+                                <!-- <div class="row"> -->
+
+                                <div class="col">
+
+                                    <div class="container">
+                                        <h3 class="d-flex justify-content-left">Memória</h3>
+                                        <div class="aviso_geral" id="Mem_AVISO"></div>
+                                        <div>
+                                            <canvas id="memory_chart"></canvas>
+                                        </div>
+                                        <div class=" d-flex justify-content-center align-middle legenda_cores">
+
+                                            <div class="Cor_da_legenda"></div>Abaixo do
+                                            mínimo:<span id="parametro_minimo_MEMORIA"></span>
+                                            <div class="Cor_da_legenda"></div>Acima do
+                                            Máximo:<span id="parametro_maximo_MEMORIA"></span>
+
+                                            <div class="Cor_da_legenda"></div>Dentro
+                                            dos parâmetros
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="banner" style="display: block;" id="banner">
+                <div id="sombra">
+                    <div class="fechar">
+                        <img src="img/cancel.png" onclick="fechar('banner')">
+                    </div>
+                    <div class="conteudo">
+                        <img src="img/logo.png" id="logo">
+                        <h4>Obtenha a versão completa e tenha acesso ao nosso dashboard sintetizado, voltado para cargos
+                            de gerência oferecendo uma visão ampla dos estados de suas máquinas.</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script>
+    function fechar(merchan) {
+        document.getElementById(merchan).style.display = "none";
+    }
+</script>
+
+<script src="./script/grafico_padrao_light.js"></script>
+<script src="./script/maquinaAtual.js"></script>
+<script src="./script/graficoCPUmaquinaLight.js"></script>
+<script src="./script/graficoMemoriageralLight.js"></script>
+<script src="./script/graficoMEMORIAmaquina.js"></script>
+<script src="./script/graficoCPUgeralLight.js"></script>

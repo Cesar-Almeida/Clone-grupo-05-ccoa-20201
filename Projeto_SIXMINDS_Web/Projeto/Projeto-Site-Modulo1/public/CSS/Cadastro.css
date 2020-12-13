@@ -1,0 +1,89 @@
+.form-control {
+  margin-top: 2%;
+}
+
+#nav {
+  height: 66px;
+}
+
+.btn{
+  margin-top: 4%;
+}
+
+#bt_cadastrar {
+  margin-left: 80.3%;
+  border-color: transparent;
+}
+#bt_login {
+  margin-right: -84.3%;
+  border: 1px solid #ffae2d;
+}
+.card-header{
+  background-color:  #ffae2d;
+}
+.card-body{
+  background-color:  #ffae2d1c;
+}
+
+.btn-link:hover{
+  color: #d18915;
+}
+h3 {
+  float: right;
+  margin: 0 0 0 1%;
+  padding: 0 0% 0 1%;
+  border-left: 1px solid #333333;
+  color: #ffae2d;
+}
+
+#icone {
+  padding: 0 0% 0 0;
+}
+
+#img_logo {
+  margin-top: 20%;
+  position: relative;
+}
+
+
+.central {
+  margin-left: 35%;
+  margin-right: 35%;
+  width: 30%;
+}
+
+.font-weight-normal {
+  color: aliceblue;
+}
+
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-image: url(https://wallpapercrafter.com/desktop/292861-countryside-harvest-agriculture-farm-nature-field.jpg);
+  background-repeat: round;
+  background-attachment: fixed;
+}
+
+.botao_login {
+  text-transform: capitalize;
+}
+
+.box {
+  text-align: center;
+}
+
+.logo_dentro {
+  width: 50%;
+}
+
+.cores_do_cadastro {
+  color: white
+}
+
+.margem_plantacao {
+  color: white
+}
+
+.form-control {
+  color: red;
+}

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SixMinds - Cadastro</title>
+  <link rel="stylesheet" href="mdb.min.css">
+  <link rel="stylesheet" href="bootstrap.min.css">
+
+  <!-- Icone na aba do navegador -->
+  <link rel="shortcut icon" href="../img/arvore.png">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <!-- Linhas de CSS Bootstrap -->
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
+
+  <!-- Linhas refrentes ao JS do boostrap -->
+  <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script> -->
+
+  <style>
+    .form-control {
+      margin: 2%;
+    }
+
+    #nav {
+      height: 66px;
+    }
+
+    #bt_cadastrar {
+      margin-left: 80.3%;
+      border-color: transparent;
+    }
+
+    #bt_login {
+      margin-right: -84.3%;
+      border: 1px solid #ffae2d;
+    }
+
+    h3 {
+      float: right;
+      margin: 0 0 0 1%;
+      padding: 0 0% 0 1%;
+      border-left: 1px solid #333333;
+      color: #ffae2d;
+    }
+
+    #icone {
+      padding: 0 0% 0 0;
+    }
+
+    #img_logo {
+      margin-top: 20%;
+      position: relative;
+    }
+  </style>
+</head>
+
+<body
+  style="
+    font-family: Verdana, Geneva, Tahoma, sans-serif; background-image: url(https://wallpapercrafter.com/desktop/292861-countryside-harvest-agriculture-farm-nature-field.jpg);background-repeat: round; background-attachment: fixed;">
+
+  <header>
+    <nav class=" arroz navbar navbar-expand-md navbar-light bg-light mb-0">
+      <style>
+        .arroz {
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+          ;
+        }
+      </style>
+      <!-- Navbar brand -->
+      <a class="navbar-brand" href="../index.html">
+        <img src="https://image.flaticon.com/icons/svg/789/789394.svg" width="40" height="40" alt="">
+      </a>
+
+      <!-- Collapse button -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+        aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Collapsible content -->
+      <div class="collapse navbar-collapse" id="basicExampleNav">
+
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link text-success" href="../index.html">
+              <h3>SixMinds</h3><span class="sr-only">(atual)</span>
+            </a>
+          </li>
+
+        </ul>
+        <!-- Links -->
+
+        <a href="../login.html" class="btn btn-light">Login</a>
+
+      </div>
+      <!-- Collapsible content -->
+
+    </nav>
+  </header>
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-4  d-flex align-items-center"
+        style="background-color: rgba(0, 0, 0, 0.808);min-height: 1000px; min-width: 300px;">
+
+
+        <form class="box" id="form_cadastro" method="POST" onsubmit="return cadastrar()">
+          <img class="rounded mx-auto d-block" src="logo.png" style="width: 50%;">
+          <h1 style="color: aliceblue">Cadastro</h1>
+          <div class="md-form">
+            <i class="fas fa-user prefix white-text"></i>
+            <input style="color: white;" name="email" type="email" id="orangeForm-email" class="form-control">
+            <label for="orangeForm-email">E-mail</label>
+          </div>
+          <div class="form-row">
+            <div class="md-form">
+              <i class="fas fa-user prefix white-text"></i>
+              <input style="color: white;" name="nome" type="text" id="orangeForm-nome" class="form-control">
+              <label for="orangeForm-nome">Nome</label>
+            </div>
+            <div class="md-form">
+              <i class="fas fa-user prefix white-text"></i>
+              <input style="color: white;" name="senha" type="password" id="orangeForm-senha" class="form-control">
+              <label for="orangeForm-senha">Senha</label>
+            </div>
+
+          </div>
+          <div class="form-row">
+            <div class="md-form">
+              <i class="fas fa-user prefix white-text"></i>
+              <input style="color: white; " name="cpf" type="text" id="orangeForm-cpf" class="form-control">
+              <label for="orangeForm-cpf">CPF</label>
+            </div>
+            <div class="md-form">
+              <i class="fas fa-user prefix white-text"></i>
+              <input style="color: white;" name="cnpj" type="text" id="orangeForm-cnpj" class="form-control">
+              <label for="orangeForm-cnpj">CNPJ</label>
+            </div>
+
+          </div>
+
+          <div class="md-form">
+            <i class="fas fa-user prefix white-text"></i>
+            <input style="color: white;" name="telefone" type="tel" id="orangeForm-tel" class="form-control">
+            <label for="orangeForm-tel">Telefone </label>
+          </div>
+          <div class="md-form">
+            <i class="fas fa-user prefix white-text"></i>
+            <input style="color: white;" name="celular" type="tel" id="orangeForm-tel" class="form-control">
+            <label for="orangeForm-tel">Celular </label>
+          </div>
+
+          <h1 style="margin-top: 10%;color: aliceblue">Plantação</h1>
+          <div class="form-row">
+            <div class="md-form">
+              <i class="fas fa-user prefix white-text"></i>
+              <input style="color: white;" name="cep" type="text" id="orangeForm-name" class="form-control">
+              <label for="orangeForm-name">CEP</label>
+            </div>
+            <div class="md-form">
+              <i class="fas fa-user prefix white-text"></i>
+              <input style="color: white;" name="bioma" type="text" id="orangeForm-pass" class="form-control">
+              <label for="orangeForm-pass">Bioma</label>
+            </div>
+
+          </div>
+          <div class="md-form">
+            <i class="fas fa-user prefix white-text"></i>
+            <input style="color: white;" name="cultivo" type="text" id="orangeForm-cultivo" class="form-control">
+            <label for="orangeForm-cultivo">Cultivo</label>
+          </div>
+          <br>
+          <div class="form-row mx-auto  align-items-center  justify-content-center">
+            <div class="input">
+              <div class="input-group mb-3">
+                <select required name="plano" class="custom-select" id="inputGroupSelect01">
+                  <option selected>Escolher...</option>
+                  <option value="1">Plano Standard</option>
+                  <option value="2">Plano Plus</option>
+                  <option value="3">Plano Premium</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+            <button class="btn peach-gradient btn-lg">Sign up</button>
+            <hr class="mt-4">
+            <div class="inline-ul text-center d-flex justify-content-center">
+              <a class="p-2 m-2 fa-lg tw-ic"><i class="fab fa-twitter white-text"></i></a>
+              <a class="p-2 m-2 fa-lg li-ic"><i class="fab fa-linkedin-in white-text"> </i></a>
+              <a class="p-2 m-2 fa-lg ins-ic"><i class="fab fa-instagram white-text"> </i></a>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
+</body>
+
+</html>
+<script>
+  function cadastrar() {
+    var formulario = new URLSearchParams(new FormData(form_cadastro));
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      body: formulario
+    }).then(function (response) {
+
+      if (response.ok) {
+        // por um alert
+        window.location.href = 'login.html';
+
+      } else {
+
+        console.log('Erro de cadastro!');
+        response.text().then(function (resposta) {
+          alert(`${resposta}`);
+        });
+      }
+    });
+
+    return false;
+  }
+
+  function aguardar() {
+    btn_entrar.disabled = true;
+  }
+
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+  integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+  integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+<script src="bootstrap.min.js"></script>
+<script src="jquery-3.4.1.min.js"></script>
+<script src="mdb.js"></script>
+<script src="popper.min.js"></script>

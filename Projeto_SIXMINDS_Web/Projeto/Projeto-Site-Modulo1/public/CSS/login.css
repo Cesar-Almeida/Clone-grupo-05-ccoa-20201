@@ -1,0 +1,48 @@
+body {
+    background-image: url("../img/soja.jpg");
+    background-repeat: round;
+    background-attachment: fixed;
+    color: white;
+
+  }
+
+  .my-3 {
+    color: white;
+  }
+
+  .central {
+    margin-left: 35%;
+    margin-right: 35%;
+    width: 30%;
+  }
+
+  #bt_cadastrar {
+    margin-left: 84.3%;
+    border-color: transparent;
+  }
+
+  #bt_login {
+    margin-right: -84.3%;
+    border: 1px solid #ffae2d;
+  }
+  #img_logo{
+    margin-top: 15%;
+  }
+
+  h3 {
+    float: right;
+    margin: 0 0 0 1%;
+    padding: 0 0% 0 1%;
+    border-left: 1px solid #333333;
+    color: #ffae2d;
+  }
+
+  #icone {
+    padding: 0 0% 0 0;
+  }
+  .botao_login{
+    border:none !important;
+
+  }
+
+  

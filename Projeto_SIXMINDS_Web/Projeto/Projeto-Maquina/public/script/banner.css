@@ -1,0 +1,47 @@
+.banner {
+    margin-top: -17%;
+    margin-left: 26%;
+    width: 73%;
+    background-color: #fff;
+    height: 10%;
+    border-radius: 5px;
+}
+
+.fechar {
+    text-align: right;
+}
+
+.fechar img {
+    width: 2%;
+    height: 2%;
+}
+
+#logo {
+    width: 25%;
+}
+
+#banner {
+    background-image: url("../img/computer-smartphone-writing-work-screen-coffee-611848-pxhere.com.jpg");
+    background-size: 100%;
+    border-radius: 5px;
+}
+
+#sombra {
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.733);
+    height: 10%;
+}
+
+.conteudo {
+    display: flex;
+}
+
+h4 {
+    padding: 4%;
+    text-align: justify;
+    color: gold;
+}
+
+#propaganda{
+    width: 100%;
+}

@@ -1,0 +1,81 @@
+body
+{
+    background: url(../fundo.png) no-repeat;
+}
+.tudo{
+    margin-top: 2%;
+    display:flex;
+    flex-direction: column;
+    max-width: 1375px;
+}
+.corpo{
+    display:flex;
+    flex-direction: column;
+    max-width: 1375px;
+}
+.cab
+{
+    
+    display: inline;
+}
+
+.cab .textc
+{
+    font-family: fantasy;
+    color: mediumaquamarine;
+    font-size: 30px;
+    margin-left: 25%;
+
+}
+
+.cab .log1
+{
+    width: 300px;
+    height: 300px;
+    float: right;
+    margin-top: -15%;
+    margin-left: -15%;
+}
+
+.innp
+{
+    margin-top: 5%;
+    font-family: fantasy;
+    color: mediumaquamarine;
+    font-size: 15px;
+}
+
+.innp2
+{
+    font-family: fantasy;
+    font-size: 20px;
+}
+
+.exibir
+{
+    background-color: midnightblue;
+    float: left;
+    margin-left: 60%;
+    margin-top: -15%;
+
+    width: 30%;
+    height: 50%;
+    
+    color: mediumaquamarine;
+    background-color: white;
+    font-size: 25px;
+    font-family: fantasy;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.btn
+{
+    background-color: mediumaquamarine;
+    color: white;
+    border-radius: 40px;
+    width: 15%;
+    height: 15%;
+    margin-top: 10px;
+    font-size: 15px;
+}

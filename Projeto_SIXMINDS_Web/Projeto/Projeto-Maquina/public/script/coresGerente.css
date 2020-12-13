@@ -1,0 +1,15 @@
+.alerta{
+    background-color: #FFCE56;
+}
+.normal{
+    background-color: #17a2b8;
+}
+.critico{
+    background-color: #FF6384;
+}
+.btn-primary{
+    margin-right: 10px;
+}
+.desativado{
+    background-color: #454d55;
+}

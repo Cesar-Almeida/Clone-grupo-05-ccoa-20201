@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SixMinds - Dashboard Geral</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="./script/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <!-- <script src="script/rosquinha2.js"></script> -->
+    <script src="https://www.chartjs.org/dist/2.9.3/Chart.min.js"></script>
+    <script src="https://www.chartjs.org/samples/latest/utils.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="dark-mode.css">
+    <!-- Icone na aba do navegador -->
+    <link rel="shortcut icon" href="img/arvore.png">
+    <link rel="stylesheet" href="script/coresGerente.css">
+    <script src="script/gerenteValores.js"></script>
+<script src="./script/configuracaoComponente.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css">
+    <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+
+
+</head>
+
+
+
+
+<body style="background-color: #f7f7f7;">
+
+
+    <div class="pos-f-t">
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-dark p-4">
+
+            </div>
+        </div>
+
+        <nav id="menu" class="navbar navbar-expand-lg navbar-light bg-white">
+            <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+                aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a id="nomeSix" class="navbar-brand text-warning" href="#">SixMinds</a>
+            
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+                    <li class="nav-item">
+                        <ul class="nav justify-content-center my-2 my-sm-0">
+                            <li class="nav-item">
+                                <a type="button" class="btn btn-danger mx-auto" data-toggle="modal"
+                                    data-target="#exampleModal" data-whatever="@mdo">Chamado de Emergência <i
+                                        class="fas fa-bell"></i></a>
+                                <i onclick="botao()" style="color: #007bff;" class="fas fa-play-circle fa-lg"></i>
+                                
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-danger" id="exampleModalLabel">Chamado de Emergência
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span id="close" aria-hidden="true" class="text-dark">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body text-primary">
+                                <form id="myForm" method="POST" action="/slack/1">
+
+                                    <div class="form-group">
+                                        <label for="input_subject">Assunto</label>
+                                        <input autofocus placeholder="Ex: Tela azul" type="text" class="form-control"
+                                            id="input_subject" name="input_subject">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="textarea_description">Descrição</label>
+                                        <textarea placeholder="Ex: A maquina não responde aos meus comandos"
+                                            class="form-control" id="textarea_description" name="textarea_description"
+                                            rows="3"></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="input_email">E-mail de Contato</label>
+                                        <input placeholder="nomeusuario@dominio.com.br" type="email"
+                                            class="form-control" id="input_email" name="input_email"
+                                            aria-describedby="emailHelp">
+                                        <small id="emailHelp" class="form-text text-muted">Nós não iremos
+                                            compartilhar
+                                            esse email com
+                                            ninguém.</small>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary mx-auto">Enviar <i
+                                            class="fas fa-envelope"></i></button>
+
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Configuração Máquinas -->
+                <button  onclick="receber_ativados(maquina_valor.value,componente_valor.value)" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                    Configuração Máquinas
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Configuração</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="rounded-lg shadow p-3 bg-white rounded">
+                                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+                                        aria-orientation="vertical">
+
+                                        <div>
+                                            <!-- Caixa Seleção e Ativação Componente -->
+                                            <div class="accordion" id="accordionExample">
+                                                <div class="card">
+                                                    <div class="card-header bg-primary" id="headingOne">
+                                                        <h5 class="mb-0">
+                                                            <button
+                                                                onclick="receber_ativados(maquina_valor.value,componente_valor.value)"
+                                                                class="btn btn-link collapsed" type="button"
+                                                                data-toggle="collapse" data-target="#collapseOne"
+                                                                aria-expanded="false" aria-controls="collapseOne">
+                                                                <p class="h6 text-white display-8">
+                                                                    Configuração de leitura
+                                                                    de componente:
+                                                                </p>
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+
+                                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                                        data-parent="#accordionExample">
+                                                        <div class="card-body">
+                                                            <form id="divselect">
+                                                                <!-- Máquina -->
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text"
+                                                                            id="basic-addon1"><svg width="1em"
+                                                                                height="1em" viewBox="0 0 16 16"
+                                                                                class="bi bi-display"
+                                                                                fill="currentColor"
+                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                <path
+                                                                                    d="M5.75 13.5c.167-.333.25-.833.25-1.5h4c0 .667.083 1.167.25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75z" />
+                                                                                <path fill-rule="evenodd"
+                                                                                    d="M13.991 3H2c-.325 0-.502.078-.602.145a.758.758 0 0 0-.254.302A1.46 1.46 0 0 0 1 4.01V10c0 .325.078.502.145.602.07.105.17.188.302.254a1.464 1.464 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.758.758 0 0 0 .254-.302 1.464 1.464 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.757.757 0 0 0-.302-.254A1.46 1.46 0 0 0 13.99 3zM14 2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h12c2 0 2-2 2-2V4c0-2-2-2-2-2z" />
+                                                                            </svg></span>
+                                                                    </div>
+                                                                    <select
+                                                                        onchange="receber_ativados(maquina_valor.value,componente_valor.value)"
+                                                                        name="" id="maquina_valor" class="form-control"
+                                                                        aria-label="Username"
+                                                                        aria-describedby="basic-addon1">
+                                                                    </select>
+                                                                </div>
+
+                                                                <!-- Componente -->
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text"
+                                                                            id="basic-addon1"><svg width="1em"
+                                                                                height="1em" viewBox="0 0 16 16"
+                                                                                class="bi bi-gear-fill"
+                                                                                fill="currentColor"
+                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                <path fill-rule="evenodd"
+                                                                                    d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 0 0-5.86 2.929 2.929 0 0 0 0 5.858z" />
+                                                                            </svg></span>
+                                                                    </div>
+                                                                    <select
+                                                                        onchange="receber_ativados(maquina_valor.value,componente_valor.value)"
+                                                                        id="componente_valor" class="form-control"
+                                                                        aria-label="Username"
+                                                                        aria-describedby="basic-addon1">
+                                                                    </select>
+                                                                </div>
+
+                                                                <!-- Ativo -->
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text"
+                                                                            id="basic-addon1"><svg width="1em"
+                                                                                height="1em" viewBox="0 0 16 16"
+                                                                                class="bi bi-link-45deg"
+                                                                                fill="currentColor"
+                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                <path
+                                                                                    d="M4.715 6.542L3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.001 1.001 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z" />
+                                                                                <path
+                                                                                    d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 0 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 0 0-4.243-4.243L6.586 4.672z" />
+                                                                            </svg></span>
+                                                                    </div>
+                                                                    <select
+                                                                        onchange="receber_ativados(maquina_valor.value,componente_valor.value)"
+                                                                        id="ativado_valor" class="form-control"
+                                                                        aria-label="Username"
+                                                                        aria-describedby="basic-addon1">
+                                                                        <option type="number" value="0">Desligar
+                                                                        </option>
+                                                                        <option type="number" value="1">Ligar</option>
+                                                                    </select>
+
+                                                                </div>
+                                                                <b>Situação Atual: </b><b id="ativado_atualmente"></b>
+                                                                <br>
+
+
+                                                                <button
+                                                                    class="btn btn-outline-secondary btn-sm btn-block"
+                                                                    onclick="desesconder();return false"
+                                                                    id="botao_editar_parametros">Editar
+                                                                    Parametros</button>
+                                                                <br>
+                                                                <div id="div_edicao_parametro" class="card-body"
+                                                                    style="display: none;">
+                                                                    Minimo: <input class="form-control" onchange="comparar_parametros()"
+                                                                        id="digitar_minimo" type="number">
+                                                                   Atual: <span id="atual_minimo"></span>
+                                                                    <br><br>
+                                                                    Máximo <input class="form-control" onchange="comparar_parametros()"
+                                                                        id="digitar_maximo" type="number">
+                                                                     Atual:<span id="atual_maximo"></span>
+                                                                </div>
+
+
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                                <button
+                                    onclick="atualizar_banco(maquina_valor.value,componente_valor.value,ativado_valor.value,digitar_minimo.value,digitar_maximo.value);return false"
+                                    class="btn btn-primary" data-toggle="button" aria-pressed="false"
+                                    style="width: 80%;">
+                                    Atualizar
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="form-inline my-2 my-lg-0">
+
+                    <div class="border btn-outline-dark border-primary rounded my-2 my-sm-0 nav-link mr-3">
+
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="darkSwitch">
+                            <label class="custom-control-label fontSize 10px" for="darkSwitch">Modo escuro</label>
+                        </div>
+                        <script src="dark-mode-switch.min.js"></script>
+
+
+                    </div>
+
+                    <a class="btn btn-outline-danger my-2 my-sm-0" type="submit" href="index.html"
+                        onclick="logoff()">Sair<i class="fas fa-door-open"></i></a>
+
+                </form>
+            </div>
+        </nav>
+    </div>
+
+    </div>
+    <!-- container geral-->
+    
+
+    <div class="container">
+        <br>
+        <br>
+        <h2>Todas as suas Máquinas</h2>
+        <br>
+        <br>
+
+        <div id="caixa_maquinas" class="row">
+
+
+        </div>
+
+
+
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    function botao(){
+
+    
+        introJs().setOptions({
+        steps: [{
+            intro: "Inicio do Tour!"
+         }, //{
+        //     element:document.querySelector('#maquina_1'),
+        //     intro: "Cada card como este representa uma máquina!"
+        // }, {
+        //     element:document.querySelector('#tabelaInicial1'),
+        //     intro: "Esta tabela representa o estado da ultima leitura de forma visual!"
+        // },
+          {
+            element:document.querySelector('#trInicial1'),
+            intro: `Sua representação pode ser: Crítico(💀), Alerta(⚠️), Normal(✅) e Desativado(❓)`
+        },{
+            element:document.querySelector('#btAmplia1'),
+            intro: `Esta aba mostra de uma forma numérica o estado de cada componente`
+        } ,{
+            element:document.querySelector('#btForecast1'),
+            intro: `Esta aba mosta o consumo e a previsão mensal(Forecast) a se pagar`
+            
+        },{
+            element:document.querySelector('#btAnalisar1'),
+            intro: `Ao clicar em "Analisar, você é redirecionado à pagina de Analista responsável por esta máquina"`
+            
+        }
+    
+    ]
+        }).start();
+        
+        //document.getElementById('ampli1').classList.remove('show');
+
+
+//
+
+        
+    }
+</script>
