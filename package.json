@@ -1,10 +1,19 @@
 {
-  "name": "Clone-grupo-05-ccoa-20201",
+  "name": "pi-ads-2019-2",
   "version": "0.0.0",
+  "engine": {
+    "node": "12"
+  },
+
+  "main": "node ./routes/index.js",
   "private": true,
+
   "scripts": {
-    "start": "npm start",
-    "build": "webpack"
+
+    "dev": "nodemon ./routes/index.js",
+    "rede": "node ./routes/index.js",
+    "start": "node ./bin/www"
+  
   },
   "dependencies": {
     "body-parser": "^1.18.2",
