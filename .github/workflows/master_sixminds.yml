@@ -18,17 +18,18 @@ jobs:
     - name: Set up Node.js version
       uses: actions/setup-node@v1
       with:
-        node-version: '12.x'
+        node-version: '12.13.0'
 
     - name: npm install, build, and test
       run: |
         npm install
-        
+        npm run build --if-present
+        npm run test --if-present
 
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v2
       with:
         app-name: 'sixminds'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_3b9e8a2764c9444e91974db6c4ef6060 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_a09459bb28154c44a3e5f0341b4a1d49 }}
         package: .
