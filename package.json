@@ -30,6 +30,7 @@
     "require": "^2.4.20",
     "sequelize": "^5.21.2",
     "tedious": "^6.6.0",
-    "webpack": "^5.10.1"
+    "webpack": "^5.10.1",
+    "webpack-cli": "^4.2.0"
   }
 }
