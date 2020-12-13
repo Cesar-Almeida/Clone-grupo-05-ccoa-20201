@@ -7,7 +7,7 @@ function atualizarComponentesCPU() {
 
     for (let i = 1; i <= 3; i++) {
 
-        fetch(`http://localhost:3000/leituras/dadosCoreComponente/${numero_nucleos}/${maquina_atual.value}/${i}`, {
+        fetch(`../leituras/dadosCoreComponente/${numero_nucleos}/${maquina_atual.value}/${i}`, {
             cache: "no-store",
         })
             .then(function (response) {
