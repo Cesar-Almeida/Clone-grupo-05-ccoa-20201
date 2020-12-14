@@ -29,13 +29,11 @@ html {
 
 @media(max-width: 540px){
   .navbar-toggler{
-    margin-right: 32%;
+    margin-right: 25%;
   }
   .nav-link{
-    width: 80%;
-    margin: 1%;
-    padding: 1%;
-    font-size: 12px;
+    width: 100%;
+   font-size: 12px;
   }
   .btn{
     width: 86%;
